@@ -53,6 +53,20 @@ TEST(mergeSort, sortsRandomNumbers)
     }
 }
 
+TEST(mergeSort, sortsOnlyNegativeNumbers)
+{
+    int tab[5]{-3, -2, -9, -1, -7};
+    int tab2[]{-9,-7,-3,-2,-1};
+
+    MergeSort m1;
+    m1.sortowanie_przez_scalanie(tab, 5, 0, 4);
+
+    for (int i = 0; i < 5; i++) {
+        std::cout << tab[i];
+        LONGS_EQUAL(tab[i], tab2[i]);
+    }
+}
+
 #include "CppUTest/CommandLineTestRunner.h"
 
 int main(int ac, char** av)
