@@ -115,6 +115,43 @@ for (int i = 0; i < 5; i++) {
 
 }
 
+TEST(mergeSort, sortsArrayWithNeagativeDuplicates)
+{
+int tab[]{-3, -3, -3, -4, -5};
+int tab2[]{-5,-4,-3,-3,-3};
+m1.sortowanie_przez_scalanie(tab, 5, 0, 4);
+for (int i = 0; i < 5; i++) {
+    LONGLONGS_EQUAL(tab[i], tab2[i]);
+}
+}
+
+TEST(mergeSort, sortsArrayWithPositiveNeagativeAndDuplicates)
+{
+int tab[]{-3, -3, 3, 1, 5};
+int tab2[]{-3, -3, 1, 3, 5};
+m1.sortowanie_przez_scalanie(tab, 5, 0, 4);
+for (int i = 0; i < 5; i++) {
+    LONGLONGS_EQUAL(tab[i], tab2[i]);
+}
+}
+
+TEST(mergeSort, sortsArrayWithOver100elements)
+{
+int tab[150];
+
+for (int i = 149; i > 0; i--)
+    tab[i] = i;
+
+m1.sortowanie_przez_scalanie(tab, 150, 0, 149);
+
+for (int i = 1; i < 150; i++) {
+    std::cout << tab[i] << " ";
+    LONGLONGS_EQUAL(tab[i],i);
+}
+}
+
+
+
 
 
 
