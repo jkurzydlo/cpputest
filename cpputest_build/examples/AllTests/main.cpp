@@ -19,6 +19,19 @@ TEST(mergeSort, notChangingArrayWhenItsSorted)
     }
 }
 
+TEST(mergeSort, sortWhenArraySortedInReverse)
+{
+    int tab[5]{5,4,3,2,1};
+    int tab2[5]{1,2,3,4,5};
+
+    MergeSort m1;
+    m1.sortowanie_przez_scalanie(tab, 5, 0, 4);
+
+    for (int i = 0; i < 5; i++) {
+        LONGS_EQUAL(tab2[i], tab[i]);
+    }
+}
+
 #include "CppUTest/CommandLineTestRunner.h"
 
 int main(int ac, char** av)
