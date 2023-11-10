@@ -5,6 +5,7 @@
 
 TEST_GROUP(mergeSort)
 {
+    MergeSort m1;
 };
 
 TEST(mergeSort, notChangingArrayWhenItsSorted)
@@ -76,7 +77,7 @@ TEST(mergeSort, sortsNegativeAndPositiveNumbers)
     m1.sortowanie_przez_scalanie(tab, 5, 0, 4);
 
     for (int i = 0; i < 5; i++) {
-        std::cout << tab[i] << ",";
+      //  std::cout << tab[i] << ",";
         LONGS_EQUAL(tab[i], tab2[i]);
     }
 }
@@ -92,6 +93,16 @@ catch (...) {
     FAIL("wyj¹tek");
 }
 delete[] tab;
+}
+
+TEST(mergeSort,doesntChangeSingleElementArray)
+{
+int tab[]{1};
+m1.sortowanie_przez_scalanie(tab, 1, 0, 0);
+std::cout << tab[0];
+
+LONGS_EQUAL(tab[0], 1);
+
 }
 
 
