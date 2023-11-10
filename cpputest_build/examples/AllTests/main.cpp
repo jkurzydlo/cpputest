@@ -150,6 +150,29 @@ for (int i = 1; i < 150; i++) {
 }
 }
 
+TEST(mergeSort, sortsArrayWithOver100elementsWithPositiveNegativeNumbersAndDuplicates)
+{
+    int tab[150];
+
+    srand((unsigned)time(NULL));
+
+for (int i = 0; i < 150; i++) {
+    if (i % 2 == 0)
+        tab[i] = 1 + (rand() % 50) * -1;
+    else 
+        tab[i] = 1 + (rand() % 10);
+    std::cout << tab[i] << " ";
+    }
+
+m1.sortowanie_przez_scalanie(tab, 150, 0, 149);
+    std::cout << "\n\n";
+
+    for (int i = 1; i < 150; i++) {
+    std::cout << tab[i] << " ";
+     CHECK_TRUE(tab[i-1] <= tab[i]);
+}
+}
+
 
 
 
