@@ -1,6 +1,7 @@
 #include "CppUTest/TestHarness.h"
 #include "CppUTest/MergeSort.hpp"
 #include <iostream>
+#include <cstdlib>
 
 TEST_GROUP(mergeSort)
 {
@@ -19,7 +20,7 @@ TEST(mergeSort, notChangingArrayWhenItsSorted)
     }
 }
 
-TEST(mergeSort, sortWhenArraySortedInReverse)
+TEST(mergeSort, sortsWhenArraySortedInReverse)
 {
     int tab[5]{5,4,3,2,1};
     int tab2[5]{1,2,3,4,5};
@@ -29,6 +30,26 @@ TEST(mergeSort, sortWhenArraySortedInReverse)
 
     for (int i = 0; i < 5; i++) {
         LONGS_EQUAL(tab2[i], tab[i]);
+    }
+}
+
+TEST(mergeSort, sortsRandomNumbers)
+{  
+    int tab[5];
+    srand((unsigned)time(NULL));
+
+    for (int i = 0; i < 5; i++) {
+        tab[i] = 1 + (rand() % 9);
+        //std::cout << tab[i];
+    }
+
+    MergeSort m1;
+    m1.sortowanie_przez_scalanie(tab, 5, 0, 4);
+
+    //tab[0] = 9;
+
+    for (int i = 1; i < 5; i++) {
+        CHECK(tab[i-1] <= tab[i]);
     }
 }
 
