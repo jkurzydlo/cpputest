@@ -62,7 +62,21 @@ TEST(mergeSort, sortsOnlyNegativeNumbers)
     m1.sortowanie_przez_scalanie(tab, 5, 0, 4);
 
     for (int i = 0; i < 5; i++) {
-        std::cout << tab[i];
+        //std::cout << tab[i];
+        LONGS_EQUAL(tab[i], tab2[i]);
+    }
+}
+
+TEST(mergeSort, sortsNegativeAndPositiveNumbers)
+{
+    int tab[5]{-2, -3, 2,2,3};
+    int tab2[]{-3,-2,2,2,3};
+
+    MergeSort m1;
+    m1.sortowanie_przez_scalanie(tab, 5, 0, 4);
+
+    for (int i = 0; i < 5; i++) {
+        std::cout << tab[i] << ",";
         LONGS_EQUAL(tab[i], tab2[i]);
     }
 }
