@@ -81,6 +81,21 @@ TEST(mergeSort, sortsNegativeAndPositiveNumbers)
     }
 }
 
+TEST(mergeSort, wontThrowExceptionWhenArrayIsEmpty)
+{
+int* tab = new int[0];
+MergeSort m1;
+try {
+    m1.sortowanie_przez_scalanie(tab, 5, 0, 4);
+}
+catch (...) {
+    FAIL("wyj¹tek");
+}
+delete[] tab;
+}
+
+
+
 #include "CppUTest/CommandLineTestRunner.h"
 
 int main(int ac, char** av)
