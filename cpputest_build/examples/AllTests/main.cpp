@@ -105,6 +105,18 @@ LONGS_EQUAL(tab[0], 1);
 
 }
 
+TEST(mergeSort, sortsArrayWithDuplicates) {
+int tab[] {3,3,3,1,5};
+int tab2[]{1, 3, 3, 3, 5};
+m1.sortowanie_przez_scalanie(tab, 5, 0, 4);
+for (int i = 0; i < 5; i++) {
+    LONGLONGS_EQUAL(tab[i], tab2[i]);
+}
+
+}
+
+
+
 
 
 #include "CppUTest/CommandLineTestRunner.h"
